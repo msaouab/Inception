@@ -12,12 +12,14 @@ NC='\033[0m' # No Color
 
 printf	"${Red}This script is used to Create env Inception in the virtual machine${NC}"
 
-apt-get -y update
-apt-get -y upgrade
-apt-get -y install vim
-apt-get -y install zsh
-apt-get -y install git
-apt-get -y install tree
+apt-get -y update		> file
+apt-get -y upgrade		> file
+apt-get -y install vim	> file
+apt-get -y install zsh	> file
+apt-get -y install git	> file
+apt-get -y install tree	> file
+
+cd      /home/msaouab/
 mkdir   inception/
 cd      inception/
 mkdir   srcs/
@@ -37,23 +39,22 @@ printf "${RED}Create inception Files Done${NC}"
 
 printf "${RED}install Docker${NC}"
 
-apt-get -y update
-apt-get -y install ca-certificates curl gnupg lsb-release
+apt-get -y update	> file
+apt-get -y install ca-certificates curl gnupg lsb-release	> file
 mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-apt-get -y update
-apt-get -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+apt-get -y update	> file
+apt-get -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin	> file
 apt-cache madison docker-ce
 VERSION=`apt-cache madison docker-ce | awk 'NR==1{print $3}'`
-apt-get -y install docker-ce=$VERSION docker-ce-cli=$VERSION containerd.io docker-compose-plugin
-service docker start
+apt-get -y install docker-ce=$VERSION docker-ce-cli=$VERSION containerd.io docker-compose-plugin	> file
+service docker start	> file
 docker run hello-world
-apt-get -y update
+apt-get -y update	> file
 
 echo " > ${Yellow}[DOCKER IS DONE]${NC}"
-
 
 echo -e "\n            report any issues to me in:"
 echo -e "                  GitHub   ~> ${Blue}\e]8;;https://github.com/msaouab\e\\msaouab\e]8;;\e\\ ${NC}"
