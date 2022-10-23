@@ -20,7 +20,8 @@
   23 wp core download --allow-root --path=/var/www/html/
   24 cd var/www/html/
   27 cat wp-config-sample.php 
-  29 vi wp-config-sample.php 
+  29 vi wp-config-sample.php
+  mv wp-config-sample.php wp-config.php 
 /etc/php7/php-fpm.d
 
 

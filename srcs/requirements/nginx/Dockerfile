@@ -15,5 +15,4 @@ RUN  openssl req -x509 -nodes -days 365 -subj "/C=MA/ST=Beni Mellal-Khenifra/L=K
 #       Email Address [E]: = ;
 
 COPY	conf/default /etc/nginx/sites-available/
-COPY conf/index.html /var/www/html/index.nginx-debian.html
 CMD ["/usr/sbin/nginx", "-g", "daemon off;"]

@@ -2,26 +2,26 @@ version: "3"
 services:
 
   # Mariadb DataBase
-  mariadb:
-    build: ./requirements/mariadb/
-    image: mariadb
-    container_name: mariadb
-    restart: always
-    volumes:
-      - vl_mariadb:/var/lib/mysql
-    networks:
-      - msaouab_net
-    env_file:
-      - .env
+  # mariadb:
+  #   build: ./requirements/mariadb/
+  #   image: mariadb
+  #   container_name: mariadb
+  #   restart: always
+  #   volumes:
+  #     - vl_mariadb:/var/lib/mysql
+  #   networks:
+  #     - msaouab_net
+  #   env_file:
+  #     - .env
 
   # Nginx Web Server
   nginx:
     build: ./requirements/nginx/
     image: nginx
     container_name: nginx
-    restart: always
-    depends_on:
-      - wordpress
+    #restart: always
+    # depends_on:
+    #   - wordpress
     volumes:
       - vl_wp:/var/www/html
     ports:
@@ -37,8 +37,8 @@ services:
     image: wordpress
     container_name: wordpress
     # restart: always
-    depends_on:
-      - mariadb
+    # depends_on:
+    #   - mariadb
     volumes:
       - vl_wp:/var/www/html/
     networks:
@@ -50,9 +50,9 @@ networks:
   msaouab_net:
 
 volumes: 
-  vl_mariadb:
+  # vl_mariadb:
   vl_wp:
     driver_opts:
       type: none
       o: bind
-      device: /home/msaouab/data
+      device: /Users/msaouab/Desktop/data
