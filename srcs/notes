@@ -1,37 +1,26 @@
-
-
-
-
-
-
-
-
-
-
-
-
-   3 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-   4 php wp-cli.phar --info
-   5 chmod +x wp-cli.phar
-   6 mv wp-cli.phar /usr/local/bin/wp
-   9 wp --info
-  11 wp core download --allow-root
-  22 mkdir -p /var/www/html
-  23 wp core download --allow-root --path=/var/www/html/
-  24 cd var/www/html/
-  27 cat wp-config-sample.php 
-  29 vi wp-config-sample.php
-  mv wp-config-sample.php wp-config.php 
+	curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+	php wp-cli.phar --info
+	chmod +x wp-cli.phar
+	mv wp-cli.phar /usr/local/bin/wp
+	wp --info
+	wp core download --allow-root
+	mkdir -p /var/www/html
+	wp core download --allow-root --path=/var/www/html/
+	cd var/www/html/
+	cat wp-config-sample.php 
+	vi wp-config-sample.php
+	mv wp-config-sample.php wp-config.php 
 /etc/php7/php-fpm.d
 
 
 
-    3  cd etc/
-    5  cd php/7.3/fpm/
-   11  cd pool.d/
-   14  cat www.conf  | grep listen
-   18  sed -i 's/listen = \/run\/php\/php7.3-fpm.sock/listen = 9000/g' www.conf 
-   19  cat www.conf  | grep listen
+	cd etc/
+	cd php/7.3/fpm/
+	cd pool.d/
+	cat www.conf  | grep listen
+	sed -i 's/listen = \/run\/php\/php7.3-fpm.sock/listen = 9000/g' www.conf 
+	sed -i 's/listen = \/run\/php\/php7.3-fpm.sock/listen = 9000/g' /var/www/html/wordpress/www.conf
+	cat www.conf  | grep listen
 /etc/php/7.3/fpm/pool.d
 
 
@@ -49,26 +38,3 @@ define( 'DB_CHARSET', 'utf8' );
 
 /** The database collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
-
-
-
-
-
-
-
-
-
-
-# all:
-# 	docker-compose -f ./srcs/docker-compose.yml up --build
-
-# stop:
-# 	docker-compose -f ./srcs/docker-compose.yml down
-	
-# clean: stop
-# 	docker rmi wordpress nginx
-
-# fclean: 
-# 	docker image rm debian
-
-# re: fclean all

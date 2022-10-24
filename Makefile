@@ -6,7 +6,7 @@
 #    By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 13:58:51 by msaouab           #+#    #+#              #
-#    Updated: 2022/10/24 15:23:06 by msaouab          ###   ########.fr        #
+#    Updated: 2022/10/24 17:02:44 by msaouab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ stop:
 	@docker-compose -f ./srcs/docker-compose.yml down
 
 start:
-	@echo "$(GREEN)███████████████████ Stop Containers ███████████████████$(NC)"
+	@echo "$(GREEN)███████████████████ Start Containers ███████████████████$(NC)"
 	@docker-compose -f ./srcs/docker-compose.yml start
 
 down:
@@ -52,7 +52,7 @@ down:
 
 clean: down
 	@echo "$(GREEN)████████████████████ Remove images ████████████████████$(NC)"
-	@docker image rmi nginx wordpress mariadb
+	@docker image rmi -f nginx wordpress mariadb
 
 fclean: clean
 	@docker image rm -f debian:buster
