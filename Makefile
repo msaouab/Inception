@@ -6,13 +6,55 @@
 #    By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 13:58:51 by msaouab           #+#    #+#              #
-#    Updated: 2022/10/23 20:33:38 by msaouab          ###   ########.fr        #
+#    Updated: 2022/10/24 12:29:08 by msaouab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-all:
-	docker-compose -f ./srcs/docker-compose.yml up --build
+HOME=/home/msaouab
+YELLOW = \033[1;33m
+GREEN = \033[1;32m
+BLUE = \033[1;34m
+RED = \033[1;31m
+NC = \033[0m
+
+all: credit build up
+	@docker-compose -f ./srcs/docker-compose.yml up --build
+
+credit:
+	@echo "██╗███╗   ██╗ ██████╗███████╗██████╗ ████████╗██╗ ██████╗ ███╗   ██╗"
+	@echo "██║████╗  ██║██╔════╝██╔════╝██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║"
+	@echo "██║██╔██╗ ██║██║     █████╗  ██████╔╝   ██║   ██║██║   ██║██╔██╗ ██║"
+	@echo "██║██║╚██╗██║██║     ██╔══╝  ██╔═══╝    ██║   ██║██║   ██║██║╚██╗██║"
+	@echo "██║██║ ╚████║╚██████╗███████╗██║        ██║   ██║╚██████╔╝██║ ╚████║"
+	@echo "╚═╝╚═╝  ╚═══╝ ╚═════╝╚══════╝╚═╝        ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝"
+	@echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	@echo "━━━━━━━━━━━━━━━━━━━━┃By :$(GREEN) msaouab $(NC)┃━━━━━━━━━━━━━━━━━━━━"
+	@echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+build:
+	@echo "$(GREEN)█████████████████████ Build Images ████████████████████$(NC)"
+	@docker-compose -f ./srcs/docker-compose.yml build
+
+up:
+	@docker-compose -f ./srcs/docker-compose.yml up -d --build
 
 stop:
-	docker-compose -f ./srcs/docker-compose.yml down
-	docker rmi wordpress nginx
+	@echo "$(GREEN)███████████████████ Stop Containers ███████████████████$(NC)"
+	@docker-compose -f ./srcs/docker-compose.yml down
+
+start:
+	@echo "$(GREEN)███████████████████ Stop Containers ███████████████████$(NC)"
+	@docker-compose -f ./srcs/docker-compose.yml start
+
+down:
+	@echo "$(GREEN)██████████████████ Remove all Containers ██████████████████$(NC)"
+	@docker-compose -f ./srcs/docker-compose.yml down
+
+clean: down
+	@echo "$(GREEN)████████████████████ Remove images ████████████████████$(NC)"
+	@docker image rmi nginx wordpress
+
+fclean: clean
+	@docker image rm -f debian:buster
+
+re: clean all

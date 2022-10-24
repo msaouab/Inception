@@ -58,3 +58,17 @@ define( 'DB_COLLATE', '' );
 
 
 
+
+# all:
+# 	docker-compose -f ./srcs/docker-compose.yml up --build
+
+# stop:
+# 	docker-compose -f ./srcs/docker-compose.yml down
+	
+# clean: stop
+# 	docker rmi wordpress nginx
+
+# fclean: 
+# 	docker image rm debian
+
+# re: fclean all
