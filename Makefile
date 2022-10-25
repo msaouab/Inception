@@ -6,11 +6,11 @@
 #    By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 13:58:51 by msaouab           #+#    #+#              #
-#    Updated: 2022/10/25 17:13:12 by msaouab          ###   ########.fr        #
+#    Updated: 2022/10/25 18:26:39 by msaouab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-HOME=/Users/msaouab/Desktop/
+HOME=/home/msaouab
 YELLOW = \033[1;33m
 GREEN = \033[1;32m
 BLUE = \033[1;34m
@@ -54,10 +54,6 @@ clean: down
 	@docker image rmi -f nginx wordpress mariadb
 
 fclean: clean
-	@docker image rm $(docker images -a -q)
-	@docker volume rm $(shell docker volume ls -q)
+	@docker image rm -f debian:buster
 
 re: fclean all
-
-# rmv:
-	# sudo rm -rf $(HOME)/data

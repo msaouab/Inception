@@ -9,4 +9,7 @@ mysql -u ${DB_ROOT_USER} -e "GRANT ALL PRIVILEGES ON *.* TO '${DB_USER}'@'localh
 mysql -u ${DB_ROOT_USER} -e "CREATE USER '${DB_USER}'@'%' IDENTIFIED BY '${DB_PASSWORD}';"
 mysql -u ${DB_ROOT_USER} -e "GRANT ALL PRIVILEGES ON ${DB_NAME}.* TO '${DB_USER}'@'%' IDENTIFIED BY '${DB_PASSWORD}';"
 mysql -u ${DB_ROOT_USER} -e "FLUSH PRIVILEGES;"
+
+wp core install --url=https://localhost --title=Inception --admin_user=$(DB_ROOT_USER) --admin_password=$(DB_PASSWORD) --admin_email=msaouab@student.1337.ma
+# wp user create $(DB_USER) saouab@gmail.com --user_pass=$(DB_PASSWORD)
 exec "$@"
