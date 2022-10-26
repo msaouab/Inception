@@ -38,3 +38,44 @@ define( 'DB_CHARSET', 'utf8' );
 
 /** The database collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
+
+
+0 mysql
+   1 apk add openrc
+   2 openrc
+   3 apk add mariadb
+   4 apk add openrc --no-cache
+   5 touch /run/openrc/softlevel
+   6 cd run/openrc/
+   7 ls
+   8 cd ../..
+   9 ls
+  10 mysql
+  11 /etc/init.d/mariadb setup
+  12 /etc/init.d/mariadb start
+  13 mysql
+  14 c-service mariadb status
+  15 rc-service mariadb status
+  16 mysql
+  17 mariadb
+  18 mariadb status
+  19 service mariadb status
+  20 service mysql status
+  21 apk add mysql
+  22 mysql
+  23 apk add mysql mysql-client
+  24 mysql
+  25 mysql -u ${DB_ROOT_USER} -e "CREATE DATABASE ${DB_NAME};"
+  26 mysql -u ${DB_ROOT_USER} -e "SHOW DATABASES;"
+  27 history 
+
+
+  2 apk add openrc
+  6 openrc
+  5 touch /run/openrc/softlevel
+  4 apk add mariadb openrc --no-cache
+  8 service mariadb status
+ 10 service mariadb setup
+ 11 service mariadb start
+  0 apk add mysql mysql-client
+  12 mysql

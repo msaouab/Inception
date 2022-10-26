@@ -1,18 +1,18 @@
-FROM	debian:buster
+FROM	alpine
 
-RUN		apt-get -y update
-RUN		apt-get -y install mariadb-server
+RUN apk update \
+	apk apk add mariadb mariadb-client
 
-#	to start mysql service
-RUN		service mysql start
+RUN		apk add openrc
+# RUN 	apk add mysql mysql-client
+RUN		openrc
+RUN 	touch /run/openrc/softlevel
 
-#	change ip 127.0.0.1 to default 0.0.0.0
-RUN		sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mysql/mariadb.conf.d/50-server.cnf
-#	change bind-address to 3306
-RUN		sed -i 's/#port/port/g' /etc/mysql/mariadb.conf.d/50-server.cnf
+RUN		apk add mariadb
 
-COPY ./tools/script.sh /
-RUN chmod +x /script.sh
-ENTRYPOINT [ "/script.sh" ]
-#	to keep mariadb container runing
-CMD		["mysqld"]
+COPY	./conf/wp.sql /
+
+COPY	./tools/script.sh /
+RUN		chmod +x /script.sh
+
+ENTRYPOINT	[ "/script.sh" ]

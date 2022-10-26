@@ -33,7 +33,7 @@ services:
     env_file:
       - .env
   
-  # WordPress
+  # # WordPress
   wordpress:
     build: ./requirements/wordpress
     image: wordpress
@@ -49,6 +49,16 @@ services:
       - msaouab_net
     env_file:
       - .env
+  
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - mariadb
+    networks:
+      - msaouab_net
 
 networks:
   msaouab_net:
