@@ -50,15 +50,22 @@ services:
     env_file:
       - .env
   
+  #adminer
   adminer:
+    build: ./requirements/bonus/adminer/
     image: adminer
+    container_name: adminer
     restart: always
-    ports:
-      - 8080:8080
     depends_on:
       - mariadb
+    volumes:
+      - vl_mariadb:/var/lib/mysql
+    ports:
+      - "8080:8080"
     networks:
       - msaouab_net
+    env_file:
+      - .env
 
 networks:
   msaouab_net:

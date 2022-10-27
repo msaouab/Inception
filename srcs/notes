@@ -93,3 +93,71 @@ pip install docker-compose
 restart your app
 
 docker-compose -f docker.yml up -d
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   9 apk add mysql mysql-client php-mysqli
+  12 /usr/bin/mysql_install_db --user=mysql
+
+  14 apk add mariadb
+  15 apk add mariadb-server
+  16 mysql
+  17 /etc/init.d/mysql start
+  18 cd /
+  19 cd etc/
+  20 ls
+  21 cd init.d/
+  22 ls
+  23 cd ..
+  24 ls
+  25 cd .
+  26 ..
+  27 cd ..
+  28 ls
+  29 apk update
+  30 mysql
+  31 apk add mariadb
+  32 apk add openrc
+  33 openrc
+  34 cd etc/init.d/
+  35 ls
+  36 ls mariadb 
+  37 cd .
+  38 ..
+  39 ls
+  40 cd ..
+  41 ls
+  42 cd ..
+  43 /etc/init.d/mariadb setup
+  44 /etc/init.d/mariadb start
+  45 rc-service mariadb start
+  46 /etc/init.d/mariadb status
+  47 openrc
+  48 /etc/init.d/mariadb status
+  49 touch /run/openrc/softlevel
+  50 ls
+  51 /etc/init.d/mariadb status
+  52 /etc/init.d/mariadb start
+  53 /etc/init.d/mariadb setup
+  54 /etc/init.d/mariadb start
+  55 mysql
+  56 rc-service mariadb status
+  57 history
+
+
+   mkdir /var/www/html
+   2 mkdir -p /var/www/html
+
+
+https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php
