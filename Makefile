@@ -6,7 +6,7 @@
 #    By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 13:58:51 by msaouab           #+#    #+#              #
-#    Updated: 2022/10/25 22:42:10 by msaouab          ###   ########.fr        #
+#    Updated: 2022/10/27 09:46:40 by msaouab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ clean: down
 	@docker image rmi -f nginx wordpress mariadb
 
 fclean: clean
-	@docker image rm -f debian:buster
+	@docker image rm -f debian:buster alpine
 	@docker volume rm srcs_vl_mariadb srcs_vl_wp
 	@rm -rf ../../data/wordpress
 

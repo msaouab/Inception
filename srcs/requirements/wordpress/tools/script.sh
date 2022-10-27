@@ -15,4 +15,5 @@ sed -i 's/localhost/'${DB_HOST}'/g' /var/www/html/wordpress/wp-config.php
 
 wp core install --url=https://localhost --title=Inception --admin_user=${DB_ROOT_USER} --admin_password=${DB_PASSWORD} --admin_email=msaouab@student.1337.ma --allow-root
 wp user create ${DB_USER} saouab@gmail.com --user_pass=${DB_PASSWORD} --allow-root
+
 exec "$@"

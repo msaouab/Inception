@@ -8,7 +8,7 @@ then
 	/etc/init.d/mariadb start
 
 	# mysql -u ${DB_ROOT_USER} < path
-	mysql -u ${DB_ROOT_USER} -e "CREATE DATABASE ${DB_NAME};"
+	mysql -u ${DB_ROOT_USER} -e "CREATE DATABASE IF NOT EXISTS ${DB_NAME};"
 	mysql -u ${DB_ROOT_USER} -e "CREATE USER '${DB_USER}'@'localhost' IDENTIFIED BY '${DB_PASSWORD}';"
 	mysql -u ${DB_ROOT_USER} -e "GRANT ALL PRIVILEGES ON *.* TO '${DB_USER}'@'localhost' IDENTIFIED BY '${DB_PASSWORD}';"
 	mysql -u ${DB_ROOT_USER} -e "CREATE USER '${DB_USER}'@'%' IDENTIFIED BY '${DB_PASSWORD}';"

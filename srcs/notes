@@ -79,3 +79,17 @@ define( 'DB_COLLATE', '' );
  11 service mariadb start
   0 apk add mysql mysql-client
   12 mysql
+
+
+
+  step 1: remove and clean your env
+
+docker-compose -f docker.yml down -v
+
+step 2: reinstall docker-compose
+
+pip install docker-compose
+
+restart your app
+
+docker-compose -f docker.yml up -d
