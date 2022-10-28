@@ -6,7 +6,7 @@
 #    By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 13:58:51 by msaouab           #+#    #+#              #
-#    Updated: 2022/10/27 14:57:14 by msaouab          ###   ########.fr        #
+#    Updated: 2022/10/28 11:48:13 by msaouab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ down:
 
 clean: down
 	@echo "$(GREEN)████████████████████ Remove images ████████████████████$(ED)"
-	@docker image rmi -f nginx wordpress mariadb
+	@docker image rmi -f nginx wordpress mariadb adminer
 
 fclean: clean
 	@docker image rm -f debian:buster alpine

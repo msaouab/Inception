@@ -67,6 +67,23 @@ services:
     env_file:
       - .env
 
+  #FTP
+  ftp:
+    build: ./requirements/bonus/ftp/
+    image: ftp
+    container_name: ftp
+    restart: always
+    depends_on:
+      - mariadb
+    volumes:
+      - vl_wp:/var/www/html/
+    ports:
+      - "5000:5000"
+    networks:
+      - msaouab_net
+    env_file:
+      - .env
+
 networks:
   msaouab_net:
 

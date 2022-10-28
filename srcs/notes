@@ -161,3 +161,22 @@ docker-compose -f docker.yml up -d
 
 
 https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php
+
+
+https://www.howtoforge.com/how-to-install-adminer-on-alma-linux-8/
+
+
+
+
+
+
+
+
+
+
+
+
+VSFTPD OR VERY SECURE File Transfer Protocol (FTP) DAEMON
+https://www.mvps.net/docs/what-is-vsftpd-or-very-secure-ftp-daemon/
+
+https://www.digitalocean.com/community/tutorials/how-to-set-up-vsftpd-for-a-user-s-directory-on-debian-10
