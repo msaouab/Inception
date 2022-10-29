@@ -6,7 +6,7 @@
 #    By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 13:58:51 by msaouab           #+#    #+#              #
-#    Updated: 2022/10/28 11:48:13 by msaouab          ###   ########.fr        #
+#    Updated: 2022/10/29 18:40:46 by msaouab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,8 @@ BLUE = \033[1;34m
 RED = \033[1;31m
 ED = \033[0m
 
-all: credit build up
-	@docker-compose -f ./srcs/docker-compose.yml up
+all: credit up
+
 credit:
 	@echo "██╗███╗   ██╗ ██████╗███████╗██████╗ ████████╗██╗ ██████╗ ███╗   ██╗"
 	@echo "██║████╗  ██║██╔════╝██╔════╝██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║"
@@ -35,11 +35,11 @@ build:
 	@docker-compose -f ./srcs/docker-compose.yml build
 
 up:
-	@docker-compose -f ./srcs/docker-compose.yml up -d --build
+	@docker-compose -f ./srcs/docker-compose.yml up --build
 
 stop:
 	@echo "$(GREEN)███████████████████ Stop Containers ███████████████████$(ED)"
-	@docker-compose -f ./srcs/docker-compose.yml down
+	@docker-compose -f ./srcs/docker-compose.yml stop
 
 start:
 	@echo "$(GREEN)███████████████████ Start Containers ███████████████████$(ED)"

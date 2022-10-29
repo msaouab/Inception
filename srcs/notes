@@ -180,3 +180,13 @@ VSFTPD OR VERY SECURE File Transfer Protocol (FTP) DAEMON
 https://www.mvps.net/docs/what-is-vsftpd-or-very-secure-ftp-daemon/
 
 https://www.digitalocean.com/community/tutorials/how-to-set-up-vsftpd-for-a-user-s-directory-on-debian-10
+
+
+
+
+
+mariadb      | You can start the MariaDB daemon with:
+mariadb      | cd '/usr' ; /usr/bin/mysqld_safe --datadir='/var/lib/mysql'
+
+
+docker stop $(docker ps -qa); docker rm $(docker ps -qa);docker rmi -f $(docker images -qa); docker volume rm $(docker volume ls -q); docker network rm $(docker network ls -q) 2>/dev/null
