@@ -1,6 +1,5 @@
 version: "3"
 services:
-
   # Mariadb DataBase
   mariadb:
     build: ./requirements/mariadb/
@@ -11,6 +10,23 @@ services:
       - vl_mariadb:/var/lib/mysql
     ports:
       - "3306:3306"
+    networks:
+      - msaouab_net
+    env_file:
+      - .env
+
+  # WordPress
+  wordpress:
+    build: ./requirements/wordpress
+    image: wordpress
+    container_name: wordpress
+    restart: always
+    depends_on:
+      - mariadb
+    volumes:
+      - vl_wp:/var/www/html/
+    ports:
+      - "9000:9000"
     networks:
       - msaouab_net
     env_file:
@@ -28,23 +44,6 @@ services:
       - vl_wp:/var/www/html
     ports:
       - "443:443"
-    networks:
-      - msaouab_net
-    env_file:
-      - .env
-  
-  # # WordPress
-  wordpress:
-    build: ./requirements/wordpress
-    image: wordpress
-    container_name: wordpress
-    restart: always
-    depends_on:
-      - mariadb
-    volumes:
-      - vl_wp:/var/www/html/
-    ports:
-      - "9000:9000"
     networks:
       - msaouab_net
     env_file:
