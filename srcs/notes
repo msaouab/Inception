@@ -168,6 +168,7 @@ https://www.howtoforge.com/how-to-install-adminer-on-alma-linux-8/
 
 
 
+RUN  openssl req -x509 -nodes -days 365 -subj -addext -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt;
 
 
 
@@ -190,3 +191,241 @@ mariadb      | cd '/usr' ; /usr/bin/mysqld_safe --datadir='/var/lib/mysql'
 
 
 docker stop $(docker ps -qa); docker rm $(docker ps -qa);docker rmi -f $(docker images -qa); docker volume rm $(docker volume ls -q); docker network rm $(docker network ls -q) 2>/dev/null
+
+
+
+
+
+root@f3089e026846:/# history
+    1  ls
+    2  apt-get -y update
+    3  apt-get -y upgrade
+    4  apt-get -y install vsftpd
+    5  cp /etc/vsftpd.conf /etc/vsftpd.conf.orig
+    6  ls
+    7  ufw status
+    8  adduser "$FTP_USER"
+    9  mkdir /home/"$FTP_USER"/ftp
+   10  chown nobody:nogroup /home/med/ftp
+   11  chmod a-w /home/med/ftp
+   12  ls -la /home/med/ftp/
+   13  mkdir /home/med/ftp/files
+   14  chown "$FTP_USER":"$FTP_USER" /home/med/ftp/files
+   15  ls -la /home/med/ftp/
+   16  echo "vsftpd test file" | tree /home/med/ftp/files/test.txt
+   17  apt-get -y install tree
+   18  echo "vsftpd test file" | tree /home/med/ftp/files/test.txt
+   19  touch /home/med/ftp/files/test.txt
+   20  echo "vsftpd test file" | tree /home/med/ftp/files/test.txt
+   21  ls /home/med/ftp/files/test.txt
+   22  apt-get -y install vim
+   23  vi /etc/vsftpd.conf
+   24  ls
+   25  echo "$FTP_USER" | tee -a /etc/vsftpd.userlist
+   26  cat /etc/vsftpd.userlist 
+   27  systemctl restart vsftpd
+   28  ls
+   29  ls etc/init.d/vsftpd 
+   30  /etc/init.d/vsftpd restart
+   31  ip a
+   32  history
+    1  ps
+    2  ps
+    3  exit
+    4  ls
+    5  cat /etc/vsftpd.conf
+    6  cat /etc/vsftpd.conf | grep listen
+    7  vi /etc/vsftpd.conf
+    8  cat /etc/vsftpd.conf | grep listen
+    9  vi /etc/vsftpd.conf
+   10  rm /etc/.vsftpd.conf.swp 
+   11  vi etc/vsftpd.conf
+   12  ip a
+   13  ls
+   14  ip a
+   15  vi etc/vsftpd.conf
+   16  /etc/init.d/restart
+   17  /etc/init.d/vsftpd restart
+   18  /etc/init.d/vsftpd restart
+   19  cat /etc/vsftpd.conf
+   20  ufw status
+   21  netstat -an
+   22  apt-get -y install ufw
+   23  history
+
+
+
+   https://www.codeproject.com/Tips/5337112/Running-FTP-SFTP-SMTP-Cache-LDAP-SSO-and-Other-Ser
+
+
+
+     1  ls
+    2  ls
+    3  apt-get -y update
+    4  apt-get -y install vsftpd
+    5  apt-get -y update
+    6  apt-get -y upgrade
+    7  apt-get -y update
+    8  apt-get -y upgrade
+    9  apt-get -y install vsftpd
+   10  apt-get -y vim
+   11  apt-get -y install vim
+   12  cp /etc/vsftpd.conf /etc/vsftpd.conf.orig
+   13  adduser "$FTP_USER"
+   14  chown nobody:nogroup /home/"$FTP_USER"/ftp
+   15  mkdir /home/"$FTP_USER"/ftp
+   16  chown nobody:nogroup /home/"$FTP_USER"/ftp
+   17  chmod a-w /home/"$FTP_USER"/ftp
+   18  ls /home/"$FTP_USER"/ftp
+   19  ls /home/med/ftp/
+   20  ls -la /home/med/ftp/
+   21  mkdir /home/med/ftp/files
+   22  chown "$FTP_USER":"$FTP_USER" /home/med/ftp/files
+   23  apt-get -y install tree
+   24  touch /home/med/ftp/files/test.txt
+   25  echo "vsftpd test file" | tree /home/med/ftp/files/test.txt
+   26  vi /etc/vsftpd.conf
+   27  vi /etc/vsftpd.conf
+   28  /etc/init.d/vsftpd restart
+   29  /etc/init.d/vsftpd restart
+   30  /etc/init.d/vsftpd restart
+   31  ip a
+   32  history
+
+
+       1  adduser "$FTP_USER"
+    2  getent group
+    3  getent group | med
+    4  getent group | grep med
+    5  adduser --help
+    6  useradd saouab -p "saouab123"
+    7  ls /home/
+    8  useradd saouab -p "saouab123" -p /home/saouab
+    9  useradd -p /home/saouab
+   10  useradd -m /home/saouab
+   11  useradd -m saouab
+   12  useradd -m /saouab
+   13  useradd smed -p msaouab -m /msaouab
+   14  useradd smed -p msaouab -m /msaouab
+   15  useradd -m smed -p msaouab -m /smed
+   16  useradd -m smed -p msaouab
+   17  cd home/
+   18  ls
+   19  cd smed/
+   20  ls
+   21  cd ..
+   22  ls
+   23  cd ..
+   24  ls
+   25  history 
+
+
+
+
+       1  adduser "$FTP_USER"
+    2  getent group
+    3  getent group | med
+    4  getent group | grep med
+    5  adduser --help
+    6  useradd saouab -p "saouab123"
+    7  ls /home/
+    8  useradd saouab -p "saouab123" -p /home/saouab
+    9  useradd -p /home/saouab
+   10  useradd -m /home/saouab
+   11  useradd -m saouab
+   12  useradd -m /saouab
+   13  useradd smed -p msaouab -m /msaouab
+   14  useradd smed -p msaouab -m /msaouab
+   15  useradd -m smed -p msaouab -m /smed
+   16  useradd -m smed -p msaouab
+   17  cd home/
+   18  ls
+   19  cd smed/
+   20  ls
+   21  cd ..
+   22  ls
+   23  cd ..
+   24  ls
+   25  history 
+   26  getent group | grep smed
+   27  mkdir home/med/ftp
+   28  chown nobody:nogroup /home/med/ftp/
+   29  ls -la
+   30  ls -la home/med/ftp/
+   31  ls -la home/med/ftp
+   32  chmod a-w /home/"$FTP_USER"/ftp
+   33  mkdir /home/med/ftp/files
+   34  chown med:med /home/med/ftp/files/
+   35  apt-get update
+   36  apt-get install vim
+   37  vi /etc/vsftpd.conf 
+   38  /etc/init.d/vsftpd restart
+   39  /etc/init.d/vsftpd restart
+   40  /etc/init.d/vsftpd restart
+   41  /etc/init.d/vsftpd restart
+   42  vi /etc/vsftpd.conf 
+   43  echo "$FTP_USER" | tee -a /etc/vsftpd.userlist
+   44  ls /etc/vsftpd.
+   45  ls /etc/vsftpd.*
+   46  /etc/init.d/vsftpd stop
+   47  /etc/init.d/vsftpd status
+   48  /etc/init.d/vsftpd start
+   49  history 
+   50  mkdir /home/smed/ftp
+   51  chown nobody:nogroup /home/smed/ftp/
+   52  chmod a-w /home/smed/ftp
+   53  mkdir /home/smed/ftp/files
+   54  chown med:med /home/smed/ftp/files/
+   55  chown smed:smed /home/smed/ftp/files/
+   56  echo  "test done" | tee -a /etc/vsftpd.userlist
+   57  cat /etc/vsftpd.userlist 
+   58  /etc/init.d/vsftpd stop
+   59  /etc/init.d/vsftpd restart
+   60  /etc/init.d/vsftpd restart
+   61  history 
+
+
+
+       1  useradd -m smed -p msaouab -m /smed
+    2  ls home/
+    3  ls
+    4  useradd -m smed -p msaouab
+    5  ls home/
+    6  getent group | grep smed
+    7  mkdir /home/smed/ftp
+    8  chown  smed:smed /home/smed/ftp/
+    9  ls -la /home/smed/ftp
+   10  echo  "test done" | tee -a /etc/vsftpd.userlist
+   11  ls /etc/vsftpd.*
+   12  cat /etc/vsftpd.userlist 
+   13  vi /etc/vsftpd.conf 
+   14  apt-get -y install vim 
+   15  vi /etc/vsftpd.conf 
+   16  /etc/init.d/vsftpd status
+   17  /etc/init.d/vsftpd stop
+   18  /etc/init.d/vsftpd status
+   19  /etc/init.d/vsftpd start
+   20  /etc/init.d/vsftpd restart
+   21  vi /etc/vsftpd.conf 
+   22  /etc/init.d/vsftpd stop
+   23  /etc/init.d/vsftpd status
+   24  /etc/init.d/vsftpd start
+   25  /etc/init.d/vsftpd restart
+   26  vi /etc/vsftpd.conf 
+   27  /etc/init.d/vsftpd stop
+   28  /etc/init.d/vsftpd status
+   29  /etc/init.d/vsftpd start
+   30  /etc/init.d/vsftpd status
+   31  /etc/init.d/vsftpd restart
+   32  history
+   33  getent user
+   34  getent --help
+   35  getent usr
+   36  echo  "test done" | tee -a /etc/vsftpd.userlist
+   37  /etc/init.d/vsftpd restart
+   38  getent group
+   39  getent group | smed
+   40  getent group | grep smed
+   41  passwd smed
+   42  cat /etc/vsftpd.conf 
+   43  history 

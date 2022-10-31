@@ -4,9 +4,12 @@ RUN		apt-get -y update
 
 RUN		apt-get -y install vsftpd
 
+RUN		cp /etc/vsftpd.conf /etc/vsftpd.conf.orig
+COPY	/conf/vsftpd.conf /etc/vsftpd/vsftpd.conf
+
 COPY	./tools/script.sh /
 RUN		chmod +x /script.sh
 
-EXPOSE 5000
+ENTRYPOINT	[ "/script.sh" ]
 
-ENTRYPOINT [ "tail", "-f", "/dev/null" ]
+CMD	vsftpd

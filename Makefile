@@ -6,15 +6,16 @@
 #    By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 13:58:51 by msaouab           #+#    #+#              #
-#    Updated: 2022/10/29 18:40:46 by msaouab          ###   ########.fr        #
+#    Updated: 2022/10/31 12:44:33 by msaouab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-HOME=/home/msaouab
-YELLOW = \033[1;33m
-GREEN = \033[1;32m
-BLUE = \033[1;34m
+bold = $(shell tput bold)
+
 RED = \033[1;31m
+GREEN = \033[1;32m
+YELLOW = \033[1;33m
+BLUE = \033[1;34m
 ED = \033[0m
 
 all: credit up
@@ -27,7 +28,7 @@ credit:
 	@echo "██║██║ ╚████║╚██████╗███████╗██║        ██║   ██║╚██████╔╝██║ ╚████║"
 	@echo "╚═╝╚═╝  ╚═══╝ ╚═════╝╚══════╝╚═╝        ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝"
 	@echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-	@echo "━━━━━━━━━━━━━━━━━━━━┃By :$(GREEN) msaouab $(ED)┃━━━━━━━━━━━━━━━━━━━━"
+	@echo "━━━━━━━━━━━━━━━━━━━━━┃ By :$(GREEN) msaouab $(ED)┃━━━━━━━━━━━━━━━━━━━━━"
 	@echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 build:
@@ -51,11 +52,10 @@ down:
 
 clean: down
 	@echo "$(GREEN)████████████████████ Remove images ████████████████████$(ED)"
-	@docker image rmi -f nginx wordpress mariadb adminer
+	@docker image rmi -f nginx wordpress mariadb adminer ftp
 
 fclean: clean
-	@docker image rm -f debian:buster alpine
+	@rm -rf /home/msaouab/Desktop/data/wordpress
 	@docker volume rm srcs_vl_mariadb srcs_vl_wp
-	@rm -rf ../../data/wordpress
 
 re: fclean all
