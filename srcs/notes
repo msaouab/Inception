@@ -429,3 +429,79 @@ root@f3089e026846:/# history
    41  passwd smed
    42  cat /etc/vsftpd.conf 
    43  history 
+
+
+
+
+
+https://manage.accuwebhosting.com/knowledgebase/3533/How-To-Configure-Redis-Caching-to-Speed-Up-WordPress-on-Ubuntu-18-04.html
+https://www.digitalocean.com/community/tutorials/how-to-configure-redis-caching-to-speed-up-wordpress-on-ubuntu-14-04
+    1  ls
+    2  apt-get -y update
+    3  apt-get -y install vim 
+    4  apt-get -y install redis-server
+    5  cd /etc/init.d/
+    6  ls
+    7  cd ..
+    8  ..
+    9  cd ..
+   10  ls
+   11  cd /var/www/html/
+   12  ls
+   13  cd wordpress/
+   14  ls
+   15  cd ..
+   16  ls\
+   17  ls
+   18  cd ..
+   19  ls
+   20  cd ..
+   21  ls
+   22  cd ..
+   23  ls
+   24  cd /etc/
+   25  ls
+   26  cd redis/
+   27  ls
+   28  cat redis.conf 
+   29  ls
+   30  cd ..
+   31  cd ..
+   32  vi /etc/redis/redis.conf 
+   33  apt-get -y install wget
+   34  cd etc/
+   35  ls
+   36  cd ../var/
+   37  ls
+   38  cd www/html/
+   39  ls
+   40  cd wordpress/
+   41  cd wp-content/
+   42  ls
+   43  cd ..
+   44  ls
+   45  cat wp-config.php 
+   46  cd ../../../
+   47  ls
+   48  cd ..
+   49  ls
+   50  ls
+   51  wget https://assets.digitalocean.com/articles/wordpress_redis/object-cache.php
+   52  cat object-cache.php 
+   53  vi /var/www/html/wordpress/wp-config.php 
+   54  service redis-server restart
+   55  vi /etc/redis/redis.conf 
+   56  service redis-server restart
+   57  service redis-server status
+   58  history 
+
+
+   apt-get -y install redis-server
+
+
+
+
+define( 'WP_CACHE_KEY_SALT', 'msaouab.42.fr' );
+define( 'WP_CACHE', true );
+define( 'WP_REDIS_HOST', 'redis' );
+

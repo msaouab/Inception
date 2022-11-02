@@ -84,6 +84,41 @@ services:
     env_file:
       - .env
 
+  
+  #Postfix
+  postfix:
+    build: ./requirements/bonus/postfix/
+    image: postfix
+    container_name: postfix
+    restart: always
+    # depends_on:
+      # - mariadb
+    volumes:
+      - vl_wp:/var/www/html/
+    ports:
+      - 25:25
+    networks:
+      - msaouab_net
+    env_file:
+      - .env
+
+  #Redis Cache
+  redis:
+    build: ./requirements/bonus/redis/
+    image: redis
+    container_name: redis
+    restart: always
+    # depends_on:
+      # - wordpress
+    volumes:
+      - vl_wp:/var/www/html/
+    ports:
+      - 6379:6379
+    networks:
+      - msaouab_net
+    env_file:
+      - .env
+
 networks:
   msaouab_net:
 
