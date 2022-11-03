@@ -1,3 +1,3 @@
 #!/bin/sh
 
-exec redis-server --port 6379 --requirepass ${FTP_PASS}
+exec redis-server --maxmemory 256mb --maxmemory-policy allkeys-lru --protected-mode no
