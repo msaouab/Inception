@@ -85,18 +85,18 @@ services:
       - .env
 
   
-  #Postfix
-  postfix:
-    build: ./requirements/bonus/postfix/
-    image: postfix
-    container_name: postfix
+  #telnet
+  telnet:
+    build: ./requirements/bonus/telnet/
+    image: telnet
+    container_name: telnet
     restart: always
     # depends_on:
       # - mariadb
     volumes:
       - vl_wp:/var/www/html/
     ports:
-      - 25:25
+      - 127.0.0.1:23:23
     networks:
       - msaouab_net
     env_file:
