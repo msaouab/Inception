@@ -84,7 +84,6 @@ services:
     env_file:
       - .env
 
-  
   #telnet
   telnet:
     build: ./requirements/bonus/telnet/
@@ -114,6 +113,21 @@ services:
       - vl_wp:/var/www/html/
     ports:
       - 6379:6379
+    networks:
+      - msaouab_net
+    env_file:
+      - .env
+
+  #website
+  website:
+    build: ./requirements/bonus/website/
+    image: website
+    container_name: website
+    restart: always
+    volumes:
+      - vl_wp:/var/www/html/
+    ports:
+      - "80:80"
     networks:
       - msaouab_net
     env_file:
