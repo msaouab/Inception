@@ -19,4 +19,15 @@ sed -i 's/localhost/'${DB_HOST}'/g' /var/www/html/wordpress/wp-config.php
 wp core install --url=https://localhost --title=Inception --admin_user=${DB_ROOT_USER} --admin_password=${DB_PASSWORD} --admin_email=msaouab@student.1337.ma --allow-root
 wp user create ${DB_USER} saouab@gmail.com --user_pass=${DB_PASSWORD} --allow-root
 
+sed -i "59i define( 'WP_REDIS_HOST', '$REDIS_HOST' );" /var/www/html/wordpress/wp-config.php
+sed -i "60i define( 'WP_REDIS_READ_TIMEOUT', 1 );" /var/www/html/wordpress/wp-config.php
+sed -i "61i define( 'WP_REDIS_DATABASE', 0 );" /var/www/html/wordpress/wp-config.php
+sed -i "62i define( 'WP_REDIS_PORT', 6379 );" /var/www/html/wordpress/wp-config.php
+sed -i "63i define( 'WP_REDIS_TIMEOUT', 1 );" /var/www/html/wordpress/wp-config.php
+
+wp plugin install redis-cache --activate --allow-root
+wp plugin update --all --allow-root
+
+wp redis enable --allow-root
+
 exec "$@"
