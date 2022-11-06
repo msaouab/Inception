@@ -6,7 +6,7 @@
 #    By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 13:58:51 by msaouab           #+#    #+#              #
-#    Updated: 2022/11/05 09:01:48 by msaouab          ###   ########.fr        #
+#    Updated: 2022/11/06 13:31:35 by msaouab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,10 +52,10 @@ down:
 
 clean: down
 	@echo "$(GREEN)████████████████████ Remove images ████████████████████$(ED)"
-	@docker image rmi -f nginx wordpress mariadb adminer ftp redis telnet website
+	@docker image rmi -f nginx wordpress mariadb adminer ftp redis website cadvisor
 
 fclean: clean
-	@rm -rf /Users/msaouab/Desktop/data/wordpress
+	@rm -rf /home/msaouab/Desktop/data/wordpress
 	@docker volume rm srcs_vl_mariadb srcs_vl_wp
 
 re: fclean all
