@@ -84,23 +84,6 @@ services:
     env_file:
       - .env
 
-  #telnet
-  telnet:
-    build: ./requirements/bonus/telnet/
-    image: telnet
-    container_name: telnet
-    restart: always
-    # depends_on:
-      # - mariadb
-    volumes:
-      - vl_wp:/var/www/html/
-    ports:
-      - 127.0.0.1:23:23
-    networks:
-      - msaouab_net
-    env_file:
-      - .env
-
   #Redis Cache
   redis:
     build: ./requirements/bonus/redis/
@@ -133,6 +116,25 @@ services:
     env_file:
       - .env
 
+  #cadvisor
+  cadvisor:
+    build: ./requirements/bonus/cadvisor/
+    image: cadvisor
+    container_name: cadvisor
+    restart: always
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    ports:
+      - 2000:2000
+    networks:
+      - msaouab_net
+    privileged: true
+    env_file:
+      - .env
+
 networks:
   msaouab_net:
 
@@ -142,4 +144,4 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/msaouab/Desktop/data/
+      device: /Users/msaouab/Desktop/data/
