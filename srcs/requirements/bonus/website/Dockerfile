@@ -1,6 +1,6 @@
 FROM	alpine
 
-RUN		apk update
+RUN		apk update 
 RUN		apk add apache2 openrc git
 RUN		openrc
 RUN		touch /run/openrc/softlevel

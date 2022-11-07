@@ -7,7 +7,7 @@ services:
     container_name: mariadb
     restart: always
     volumes:
-      - vl_mariadb:/var/lib/mysql
+      - /Users/msaouab/Desktop/data/vl_mariadb:/var/lib/mysql
     ports:
       - "3306:3306"
     networks:
@@ -24,7 +24,7 @@ services:
     depends_on:
       - mariadb
     volumes:
-      - vl_wp:/var/www/html/
+      - /Users/msaouab/Desktop/data/vl_wp:/var/www/html/
     ports:
       - "9000:9000"
     networks:
@@ -41,7 +41,7 @@ services:
     depends_on:
       - wordpress
     volumes:
-      - vl_wp:/var/www/html
+      - /Users/msaouab/Desktop/data/vl_wp:/var/www/html
     ports:
       - "443:443"
     networks:
@@ -58,7 +58,7 @@ services:
     # depends_on:
       # - mariadb
     volumes:
-      - vl_mariadb:/var/lib/mysql
+      - /Users/msaouab/Desktop/data/vl_mariadb:/var/lib/mysql
     ports:
       - "8080:8080"
     networks:
@@ -75,7 +75,7 @@ services:
     # depends_on:
       # - mariadb
     volumes:
-      - vl_wp:/var/www/html/
+      - /Users/msaouab/Desktop/data/vl_wp:/var/www/html/
     ports:
       - 0.0.0.0:21:21
       - "21100-21110:21100-21110"
@@ -93,7 +93,7 @@ services:
     # depends_on:
       # - wordpress
     volumes:
-      - vl_wp:/var/www/html/
+      - /Users/msaouab/Desktop/data/vl_wp:/var/www/html/
     ports:
       - 6379:6379
     networks:
@@ -107,8 +107,6 @@ services:
     image: website
     container_name: website
     restart: always
-    volumes:
-      - vl_wp:/var/www/html/
     ports:
       - "80:80"
     networks:
@@ -138,10 +136,10 @@ services:
 networks:
   msaouab_net:
 
-volumes: 
-  vl_mariadb:
-  vl_wp:
-    driver_opts:
-      type: none
-      o: bind
-      device: /home/msaouab/Desktop/data/
+# volumes: 
+#   vl_mariadb:
+#   vl_wp:
+#     driver_opts:
+#       type: none
+#       o: bind
+#       device: /Users/msaouab/Desktop/data/vl_wp
