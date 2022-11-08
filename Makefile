@@ -6,7 +6,7 @@
 #    By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 13:58:51 by msaouab           #+#    #+#              #
-#    Updated: 2022/11/06 13:39:04 by msaouab          ###   ########.fr        #
+#    Updated: 2022/11/08 15:29:35 by msaouab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ build:
 	@docker-compose -f ./srcs/docker-compose.yml build
 
 up:
+	@echo "$(GREEN)█████████████████████ Run Images ████████████████████$(ED)"
 	@docker-compose -f ./srcs/docker-compose.yml up --build
 
 stop:
@@ -55,6 +56,7 @@ clean: down
 	@docker image rmi -f nginx wordpress mariadb adminer ftp redis website cadvisor
 
 fclean: clean
+	@echo "$(GREEN)████████████████████ Clean sys ████████████████████$(ED)"
 	@rm -rf /Users/msaouab/Desktop/data/wordpress
 	@docker volume rm srcs_vl_mariadb srcs_vl_wp
 

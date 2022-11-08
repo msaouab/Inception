@@ -7,7 +7,7 @@ services:
     container_name: mariadb
     restart: always
     volumes:
-      - /Users/msaouab/Desktop/data/vl_mariadb:/var/lib/mysql
+      - vl_mariadb:/var/lib/mysql
     ports:
       - "3306:3306"
     networks:
@@ -24,7 +24,7 @@ services:
     depends_on:
       - mariadb
     volumes:
-      - /Users/msaouab/Desktop/data/vl_wp:/var/www/html/
+      - vl_wp:/var/www/html/
     ports:
       - "9000:9000"
     networks:
@@ -41,7 +41,7 @@ services:
     depends_on:
       - wordpress
     volumes:
-      - /Users/msaouab/Desktop/data/vl_wp:/var/www/html
+      - vl_wp:/var/www/html
     ports:
       - "443:443"
     networks:
@@ -55,10 +55,10 @@ services:
     image: adminer
     container_name: adminer
     restart: always
-    # depends_on:
-      # - mariadb
+    depends_on:
+      - mariadb
     volumes:
-      - /Users/msaouab/Desktop/data/vl_mariadb:/var/lib/mysql
+      - vl_mariadb:/var/lib/mysql
     ports:
       - "8080:8080"
     networks:
@@ -72,10 +72,8 @@ services:
     image: ftp
     container_name: ftp
     restart: always
-    # depends_on:
-      # - mariadb
     volumes:
-      - /Users/msaouab/Desktop/data/vl_wp:/var/www/html/
+      - vl_wp:/var/www/html/
     ports:
       - 0.0.0.0:21:21
       - "21100-21110:21100-21110"
@@ -90,10 +88,8 @@ services:
     image: redis
     container_name: redis
     restart: always
-    # depends_on:
-      # - wordpress
     volumes:
-      - /Users/msaouab/Desktop/data/vl_wp:/var/www/html/
+      - vl_wp:/var/www/html/
     ports:
       - 6379:6379
     networks:
@@ -107,14 +103,16 @@ services:
     image: website
     container_name: website
     restart: always
+    volumes:
+      - vl_wp:/var/www/html/
     ports:
-      - "80:80"
+      - "100:100"
     networks:
       - msaouab_net
     env_file:
       - .env
 
-  #cadvisor
+  # cadvisor
   cadvisor:
     build: ./requirements/bonus/cadvisor/
     image: cadvisor
@@ -136,10 +134,10 @@ services:
 networks:
   msaouab_net:
 
-# volumes: 
-#   vl_mariadb:
-#   vl_wp:
-#     driver_opts:
-#       type: none
-#       o: bind
-#       device: /Users/msaouab/Desktop/data/vl_wp
+volumes: 
+  vl_mariadb:
+  vl_wp:
+    driver_opts:
+      type: none
+      o: bind
+      device: /Users/msaouab/Desktop/data/
