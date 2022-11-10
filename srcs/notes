@@ -169,7 +169,7 @@ https://www.howtoforge.com/how-to-install-adminer-on-alma-linux-8/
 
 
 RUN  openssl req -x509 -nodes -days 365 -subj -addext -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt;
-
+https://www.howtogeek.com/devops/how-to-create-and-use-self-signed-ssl-on-nginx/
 
 
 
