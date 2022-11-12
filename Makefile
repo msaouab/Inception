@@ -6,7 +6,7 @@
 #    By: msaouab <msaouab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 13:58:51 by msaouab           #+#    #+#              #
-#    Updated: 2022/11/08 20:59:29 by msaouab          ###   ########.fr        #
+#    Updated: 2022/11/12 12:22:27 by msaouab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ clean: down
 
 fclean: clean
 	@echo "$(GREEN)████████████████████ Clean sys ████████████████████$(ED)"
-	@rm -rf /Users/msaouab/Desktop/data/wordpress
+	@rm -rf /home/msaouab/data/wordpress
 	@docker volume rm srcs_vl_mariadb srcs_vl_wp
 
 re: fclean all
